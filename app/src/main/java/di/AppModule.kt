@@ -14,6 +14,7 @@ import org.koin.core.module.dsl.bind
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 import ru.alexandrorlov.kinopoisk.ui.details.DetailsViewModel
+import ru.alexandrorlov.kinopoisk.ui.favorites.FavoriteViewModel
 import ru.alexandrorlov.kinopoisk.ui.navigation.NavigationManager
 import ru.alexandrorlov.kinopoisk.ui.popular.PopularViewModel
 
@@ -50,6 +51,8 @@ val favoritesModule = module {
     singleOf(::FavoriteMovieRepositoryImpl) {
         bind<FavoriteMovieRepository>()
     }
+
+    viewModelOf(::FavoriteViewModel)
 }
 
 val detailsModule = module {

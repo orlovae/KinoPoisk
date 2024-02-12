@@ -11,7 +11,6 @@ import data.network.api.TopMovieRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
 import ru.alexandrorlov.kinopoisk.ui.model.TypeException
 import ru.alexandrorlov.kinopoisk.ui.model.popular.MapToPopularMovieUI
 import ru.alexandrorlov.kinopoisk.ui.model.popular.PopularMovieUI
@@ -99,7 +98,7 @@ internal class PopularViewModel(
             _uiState.value.popularViewState.data.list.first { it.id == idMovie },
         )
 
-        viewModelScope.launch {
+        viewModelScope.safeLaunch {
             if (favoriteMove.favorite) {
                 localRepository.insertMovieDb(favoriteMove)
             } else {

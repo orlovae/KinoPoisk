@@ -1,27 +1,27 @@
 package ru.alexandrorlov.kinopoisk.ui.favorites
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.navigation.NavController
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import org.koin.androidx.compose.koinViewModel
+import ru.alexandrorlov.kinopoisk.ui.state.FailureState
+import ru.alexandrorlov.kinopoisk.ui.state.LoadingState
 
 @Composable
-fun FavoritesScreen(
-    navController: NavController,
+internal fun FavoritesScreen(
+    viewModel: FavoriteViewModel = koinViewModel(),
 ) {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.Green),
-        contentAlignment = Alignment.Center,
-    ) {
-        Text(
-            text = "Favorites Screen",
+    val uiState by viewModel.uiState.collectAsState()
+
+    when (uiState.favoriteViewState) {
+        FavoriteViewState.Loading -> LoadingState()
+
+        is FavoriteViewState.Data -> FavoriteDataState(
+            popularMovieUIList = uiState.favoriteViewState.data.list,
+        )
+
+        is FavoriteViewState.Error -> FailureState(
+            typeException = uiState.favoriteViewState.error.typeException,
         )
     }
 }

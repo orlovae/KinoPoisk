@@ -29,9 +29,7 @@ fun NavigationGraph(navController: NavHostController) {
         composable(
             route = BottomNavItem.Favourites.screenRoot,
         ) {
-            FavoritesScreen(
-                navController = navController,
-            )
+            FavoritesScreen()
         }
 
         composable(
