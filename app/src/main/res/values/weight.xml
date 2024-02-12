@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Animation Progress Indicator -->
+    <item name="initial_value_transaction" format="float" type="dimen">0</item>
+    <item name="target_value_transaction" format="float" type="dimen">360</item>
+    <item name="progress" format="float" type="dimen">0.55</item>
+</resources>

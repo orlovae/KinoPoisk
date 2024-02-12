@@ -1,3 +1,24 @@
 <resources>
-    <string name="app_name">KinoPoisk</string>
+    <string name="app_name">Кинопоиск Лайт</string>
+
+    <!-- Bottom Bar -->
+    <string name="popular_item_bottombar">Популярные</string>
+    <string name="favorites_item_bottombar">Избранное</string>
+
+    <!-- Card -->
+    <string name="opening_parenthesis">(</string>
+    <string name="closing_parenthesis">)</string>
+    <string name="space">\u0020</string>
+
+    <!-- Failure State -->
+    <string name="no_internet_error">Произошла ошибка при загрузке данных, проверьте подключение к сети</string>
+    <string name="all_error">Что-то пошло не так</string>
+    <string name="button_text_repeat">Повторить</string>
+    <string name="button_text_back">Назад</string>
+
+    <!-- Detail Screen -->
+    <string name="genres">Жанры:\u0020</string>
+    <string name="value_empty">Информация не доступна</string>
+    <string name="countries">Страны:\u0020</string>
+    <string name="year">Год:\u0020</string>
 </resources>
