@@ -16,10 +16,10 @@ data class MovieDb(
     val title: String,
     @ColumnInfo(name = LocalConstant.Movie.COLUMN_GENRE)
     val genre: String,
-    @ColumnInfo(name = LocalConstant.Movie.COLUMN_COUNTIES)
-    val counties: String,
+    @ColumnInfo(name = LocalConstant.Movie.COLUMN_COUNTRY)
+    val country: String,
     @ColumnInfo(name = LocalConstant.Movie.COLUMN_YEAR)
     val year: String,
     @ColumnInfo(name = LocalConstant.Movie.COLUMN_FAVORITES)
-    val favorites: Boolean,
+    val favorite: Boolean,
 )

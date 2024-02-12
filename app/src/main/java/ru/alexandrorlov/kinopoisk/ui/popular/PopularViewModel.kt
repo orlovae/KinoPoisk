@@ -5,16 +5,20 @@ import base.BaseViewModel
 import base.getTypeException
 import base.safeLaunch
 import common.data.Either
+import data.local.api.FavoriteMovieRepository
+import data.local.models.MapUiToDb
 import data.network.api.TopMovieRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 import ru.alexandrorlov.kinopoisk.ui.model.TypeException
 import ru.alexandrorlov.kinopoisk.ui.model.popular.MapToPopularMovieUI
 import ru.alexandrorlov.kinopoisk.ui.model.popular.PopularMovieUI
 
 internal class PopularViewModel(
-    private val repository: TopMovieRepository,
+    private val networkRepository: TopMovieRepository,
+    private val localRepository: FavoriteMovieRepository,
 ) : BaseViewModel<UIPopularViewState>(
     UIPopularViewState(),
 ) {
@@ -22,10 +26,11 @@ internal class PopularViewModel(
     val uiState = _uiState.asStateFlow()
 
     private val toMovieUI = MapToPopularMovieUI()
+    private val toMovieDb = MapUiToDb()
 
     init {
         viewModelScope.safeLaunch {
-            when (val either = repository.getTopMovie()) {
+            when (val either = networkRepository.getTopMovie()) {
                 is Either.Fail -> {
                     val exception = either.value
                     _uiState.update {
@@ -71,8 +76,8 @@ internal class PopularViewModel(
                         id = movieUI.id,
                         preview = movieUI.preview,
                         title = movieUI.title,
-                        genres = movieUI.genres,
-                        counties = movieUI.counties,
+                        genre = movieUI.genre,
+                        country = movieUI.country,
                         year = movieUI.year,
                         favorite = !movieUI.favorite,
                     )
@@ -85,6 +90,21 @@ internal class PopularViewModel(
                     list = list,
                 ),
             )
+        }
+        saveFavoriteMovieToDatabase(idMovie)
+    }
+
+    private fun saveFavoriteMovieToDatabase(idMovie: Int) {
+        val favoriteMove = toMovieDb.transform(
+            _uiState.value.popularViewState.data.list.first { it.id == idMovie },
+        )
+
+        viewModelScope.launch {
+            if (favoriteMove.favorite) {
+                localRepository.insertMovieDb(favoriteMove)
+            } else {
+                localRepository.deleteMovieDb(favoriteMove)
+            }
         }
     }
 }

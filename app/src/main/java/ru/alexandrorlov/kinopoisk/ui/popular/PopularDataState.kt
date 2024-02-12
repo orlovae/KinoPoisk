@@ -71,11 +71,13 @@ private fun MovieCard(
     onLongClick: () -> Unit,
 ) {
     val context = LocalContext.current
-    val genreAndYear = popularMovieUI.genres.first() +
+
+    val genreAndYear = popularMovieUI.genre.first() +
         stringResource(R.string.space) +
         stringResource(R.string.opening_parenthesis) +
         popularMovieUI.year +
         stringResource(R.string.closing_parenthesis)
+
     Card(
         modifier = Modifier
             .height(dimensionResource(R.dimen.height_card))

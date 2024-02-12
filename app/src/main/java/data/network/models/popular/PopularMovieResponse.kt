@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class PopularMovieResponse(
     @SerialName("items")
-    val movies: List<Movie>,
+    val movies: List<MovieNetwork>,
     @SerialName("total")
     val total: Int,
     @SerialName("totalPages")

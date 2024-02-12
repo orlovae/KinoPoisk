@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Movie(
+data class MovieNetwork(
     @SerialName("kinopoiskId")
     val kinopoiskId: Int?,
     @SerialName("imdbId")

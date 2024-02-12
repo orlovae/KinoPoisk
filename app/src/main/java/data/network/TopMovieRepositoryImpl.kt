@@ -8,7 +8,7 @@ import data.network.NetworkConstants.KTOR
 import data.network.NetworkConstants.REQUEST_PARAMETER_TOP_KEY
 import data.network.NetworkConstants.REQUEST_PARAMETER_TOP_VALUE
 import data.network.api.TopMovieRepository
-import data.network.models.popular.Movie
+import data.network.models.popular.MovieNetwork
 import data.network.models.popular.PopularMovieResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -19,7 +19,7 @@ import kotlinx.coroutines.withContext
 import timber.log.Timber
 
 internal class TopMovieRepositoryImpl(private val ktorApi: HttpClient) : TopMovieRepository {
-    override suspend fun getTopMovie(): Either<Exception, List<Movie>> =
+    override suspend fun getTopMovie(): Either<Exception, List<MovieNetwork>> =
         withContext(Dispatchers.IO) {
             return@withContext try {
                 val response: PopularMovieResponse =
