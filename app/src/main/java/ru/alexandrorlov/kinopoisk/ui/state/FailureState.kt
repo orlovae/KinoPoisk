@@ -3,8 +3,10 @@ package ru.alexandrorlov.kinopoisk.ui.state
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.LargeFloatingActionButton
@@ -47,8 +49,16 @@ private fun NoInternetScreen() {
         painter = painterResource(R.drawable.no_internet),
         contentDescription = "",
     )
+    Spacer(
+        modifier = Modifier
+            .size(dimensionResource(R.dimen.medium_padding)),
+    )
     Text(
         text = stringResource(R.string.no_internet_error),
+    )
+    Spacer(
+        modifier = Modifier
+            .size(dimensionResource(R.dimen.medium_padding)),
     )
     BaseButton(
         onClick = { /*TODO*/ },
@@ -60,6 +70,10 @@ private fun NoInternetScreen() {
 private fun AllErrorScreen() {
     Text(
         text = stringResource(R.string.all_error),
+    )
+    Spacer(
+        modifier = Modifier
+            .size(dimensionResource(R.dimen.medium_padding)),
     )
     BaseButton(
         onClick = { /*TODO*/ },
