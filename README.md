@@ -1,3 +1,6 @@
+![Screenshot_20240212_092753](https://github.com/orlovae/KinoPoisk/assets/24921449/eb7c8150-c139-4519-a339-98c274a385a6)
+![Screenshot_20240212_092803](https://github.com/orlovae/KinoPoisk/assets/24921449/c056bccc-a808-4af8-84ff-3bc464df9902)
+![Screenshot_20240212_092826](https://github.com/orlovae/KinoPoisk/assets/24921449/d5bfdecf-d441-4d67-a08b-ec4227fe5be3)
 Тестовое задание в Тинькофф Старт
 Использованные технологии: Compose, Compose Navigation, Koin, Ktor, Room, Coroutines, Coil
 Клиент-серверное приложение с api Кинопоиск
