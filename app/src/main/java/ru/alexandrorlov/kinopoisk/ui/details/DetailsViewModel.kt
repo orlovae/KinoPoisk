@@ -6,10 +6,10 @@ import base.BaseViewModel
 import base.getTypeException
 import base.safeLaunch
 import common.data.Either
+import data.network.api.DetailMovieRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-import network.api.DetailMovieRepository
 import ru.alexandrorlov.kinopoisk.ui.model.details.MapToDetailsMovieUI
 import ru.alexandrorlov.kinopoisk.ui.util.UiConstant.MOVIE_ID
 

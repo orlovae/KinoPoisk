@@ -1,7 +1,7 @@
-package network.api
+package data.network.api
 
 import common.data.Either
-import network.models.popular.Movie
+import data.network.models.popular.Movie
 
 internal interface TopMovieRepository {
     suspend fun getTopMovie(): Either<Exception, List<Movie>>

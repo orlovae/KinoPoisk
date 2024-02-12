@@ -5,10 +5,10 @@ import base.BaseViewModel
 import base.getTypeException
 import base.safeLaunch
 import common.data.Either
+import data.network.api.TopMovieRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-import network.api.TopMovieRepository
 import ru.alexandrorlov.kinopoisk.ui.model.TypeException
 import ru.alexandrorlov.kinopoisk.ui.model.popular.MapToPopularMovieUI
 import ru.alexandrorlov.kinopoisk.ui.model.popular.PopularMovieUI

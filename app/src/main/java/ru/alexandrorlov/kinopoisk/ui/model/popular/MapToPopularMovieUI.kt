@@ -1,7 +1,7 @@
 package ru.alexandrorlov.kinopoisk.ui.model.popular
 
 import common.data.Mapper
-import network.models.popular.Movie
+import data.network.models.popular.Movie
 
 class MapToPopularMovieUI : Mapper<Movie, PopularMovieUI> {
     override fun transform(data: Movie): PopularMovieUI =

@@ -1,21 +1,21 @@
-package network
+package data.network
 
 import common.data.Either
+import data.network.NetworkConstants.BASE_URL
+import data.network.NetworkConstants.HEADER_KEY
+import data.network.NetworkConstants.KEY
+import data.network.NetworkConstants.KTOR
+import data.network.NetworkConstants.REQUEST_PARAMETER_TOP_KEY
+import data.network.NetworkConstants.REQUEST_PARAMETER_TOP_VALUE
+import data.network.api.TopMovieRepository
+import data.network.models.popular.Movie
+import data.network.models.popular.PopularMovieResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import network.NetworkConstants.BASE_URL
-import network.NetworkConstants.HEADER_KEY
-import network.NetworkConstants.KEY
-import network.NetworkConstants.KTOR
-import network.NetworkConstants.REQUEST_PARAMETER_TOP_KEY
-import network.NetworkConstants.REQUEST_PARAMETER_TOP_VALUE
-import network.api.TopMovieRepository
-import network.models.popular.Movie
-import network.models.popular.PopularMovieResponse
 import timber.log.Timber
 
 internal class TopMovieRepositoryImpl(private val ktorApi: HttpClient) : TopMovieRepository {

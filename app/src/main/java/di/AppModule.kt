@@ -1,10 +1,13 @@
 package di
 
-import network.DetailMovieRepositoryImpl
-import network.NetworkApi
-import network.TopMovieRepositoryImpl
-import network.api.DetailMovieRepository
-import network.api.TopMovieRepository
+import data.local.DataBaseApi
+import data.local.FavoriteMovieRepositoryImpl
+import data.local.api.FavoriteMovieRepository
+import data.network.DetailMovieRepositoryImpl
+import data.network.NetworkApi
+import data.network.TopMovieRepositoryImpl
+import data.network.api.DetailMovieRepository
+import data.network.api.TopMovieRepository
 import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.core.module.Module
 import org.koin.core.module.dsl.bind
@@ -19,7 +22,9 @@ val appModule: Module
         module {
             includes(
                 networkModule,
+                localDataBaseModule,
                 popularModule,
+                favoritesModule,
                 detailsModule,
                 navModule,
             )
@@ -29,12 +34,22 @@ val networkModule = module {
     singleOf(NetworkApi::create)
 }
 
+val localDataBaseModule = module {
+    singleOf(DataBaseApi::create)
+}
+
 val popularModule = module {
     singleOf(::TopMovieRepositoryImpl) {
         bind<TopMovieRepository>()
     }
 
     viewModelOf(::PopularViewModel)
+}
+
+val favoritesModule = module {
+    singleOf(::FavoriteMovieRepositoryImpl) {
+        bind<FavoriteMovieRepository>()
+    }
 }
 
 val detailsModule = module {

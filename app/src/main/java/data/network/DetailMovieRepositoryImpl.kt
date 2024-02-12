@@ -1,13 +1,13 @@
-package network
+package data.network
 
 import common.data.Either
+import data.network.api.DetailMovieRepository
+import data.network.models.details.DetailsMovieResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import network.api.DetailMovieRepository
-import network.models.details.DetailsMovieResponse
 import timber.log.Timber
 
 class DetailMovieRepositoryImpl(private val ktorApi: HttpClient) : DetailMovieRepository {

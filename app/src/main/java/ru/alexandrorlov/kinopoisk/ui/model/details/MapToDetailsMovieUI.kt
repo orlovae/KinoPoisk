@@ -1,12 +1,13 @@
 package ru.alexandrorlov.kinopoisk.ui.model.details
 
 import common.data.Mapper
-import network.models.details.DetailsMovieResponse
+import data.network.models.details.DetailsMovieResponse
 
 class MapToDetailsMovieUI : Mapper<DetailsMovieResponse, DetailsMovieUI> {
 
     override fun transform(data: DetailsMovieResponse): DetailsMovieUI =
         DetailsMovieUI(
+            id = data.kinopoiskId ?: -1,
             poster = data.posterUrl ?: "",
             title = data.nameRu ?: "",
             description = data.description ?: "",

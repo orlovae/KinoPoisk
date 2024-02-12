@@ -1,4 +1,4 @@
-package network.models.popular
+package data.network.models.popular
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
